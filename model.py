@@ -44,3 +44,5 @@ valid_batches = ImageDataGenerator().flow_from_directory(valid_path,target_size=
 model1.compile(Adam(lr=0.0001),loss='categorical_crossentropy',metrics=['accuracy'])
 model1.fit_generator(train_batches,steps_per_epoch=10,validation_data=valid_batches,validation_steps=4,epochs=10,verbose=2)
 
+prediction = model1.predict_generator(test_batches,steps=1,verbose=1)
+
